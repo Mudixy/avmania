@@ -1,0 +1,452 @@
+/* Styles pour le template d'audiences TV avec tableau */
+
+:root {
+    --tf1-color: #0000ff;
+    --france2-color: #e30613;
+    --france3-color: #0072bc;
+    --m6-color: #ff6600;
+    --arte-color: #fa481c;
+    --c8-color: #00ccff;
+    --tmc-color: #00a3e0;
+    --w9-color: #b51f1f;
+  }
+  
+  .audience-page {
+    background-color: var(--background);
+  }
+  
+  /* Bannière de date */
+  .audience-date-banner {
+    background-color: var(--primary);
+    color: white;
+    padding: 1rem;
+    border-radius: var(--radius);
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 4px 12px var(--shadow);
+  }
+  
+  .date-label {
+    font-size: 1.125rem;
+    font-weight: 500;
+  }
+  
+  .date-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  /* Tableau d'audiences */
+  .audience-table-container {
+    margin: 2rem 0;
+    overflow-x: auto;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 15px var(--shadow);
+  }
+  
+  .audience-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--card);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  
+  .audience-table thead {
+    background-color: var(--background-alt);
+    color: var(--text);
+  }
+  
+  .audience-table th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid var(--border);
+  }
+  
+  .audience-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  
+  .audience-table tbody tr {
+    transition: background-color var(--transition);
+  }
+  
+  .audience-table tbody tr:hover {
+    background-color: var(--card-hover);
+  }
+  
+  .audience-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+  
+  /* Ligne gagnante */
+  .winner-row {
+    background-color: rgba(var(--primary-rgb), 0.05);
+    position: relative;
+  }
+  
+  .winner-row::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: var(--primary);
+  }
+  
+  /* Colonnes du tableau */
+  .logo-column {
+    width: 80px;
+  }
+  
+  .logo-cell {
+    width: 80px;
+    text-align: center;
+  }
+  
+  .channel-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    overflow: hidden; /* Assure que l'image ne dépasse pas du cercle */
+    box-shadow: 0 2px 8px var(--shadow);
+    background-color: transparent; /* Supprime le fond coloré */
+  }
+  
+  .channel-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Permet à l'image de rester visible sans être rognée */
+  }
+  
+  /* Supprimer les fonds colorés spécifiques aux chaînes */
+  .channel-logo.tf1,
+  .channel-logo.france2,
+  .channel-logo.france3,
+  .channel-logo.m6,
+  .channel-logo.arte,
+  .channel-logo.c8,
+  .channel-logo.w9,
+  .channel-logo.tmc {
+    background-color: transparent; /* Retirer le fond coloré */
+  }
+  
+  /* Cellule programme */
+  .program-cell {
+    min-width: 200px;
+  }
+  
+  .program-title {
+    font-weight: 600;
+    font-size: 1.125rem;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+  }
+  
+  .program-info {
+    font-size: 0.875rem;
+    color: var(--text-light);
+  }
+  
+  /* Cellule téléspectateurs */
+  .viewers-cell {
+    min-width: 150px;
+  }
+  
+  .viewers-count {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+  }
+  
+  .viewers-trend {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  
+  .viewers-trend.positive {
+    background-color: rgba(34, 197, 94, 0.1);
+    color: rgb(34, 197, 94);
+  }
+  
+  .viewers-trend.negative {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: rgb(239, 68, 68);
+  }
+  
+  .viewers-trend.neutral {
+    background-color: rgba(100, 116, 139, 0.1);
+    color: rgb(100, 116, 139);
+  }
+  
+  /* Cellule part d'audience */
+  .share-cell {
+    min-width: 100px;
+  }
+  
+  .share-value {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+  }
+  
+  .share-trend {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  
+  .share-trend.positive {
+    background-color: rgba(34, 197, 94, 0.1);
+    color: rgb(34, 197, 94);
+  }
+  
+  .share-trend.negative {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: rgb(239, 68, 68);
+  }
+  
+  .share-trend.neutral {
+    background-color: rgba(100, 116, 139, 0.1);
+    color: rgb(100, 116, 139);
+  }
+  
+  /* Section d'analyse */
+  .audience-analysis {
+    margin: 3rem 0;
+    padding: 2rem;
+    background-color: var(--card);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 12px var(--shadow);
+  }
+  
+  .audience-analysis h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--text);
+    position: relative;
+    padding-bottom: 0.75rem;
+  }
+  
+  .audience-analysis h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary);
+  }
+  
+  .audience-analysis p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  
+  /* Section cibles commerciales */
+  .audience-targets {
+    margin: 3rem 0;
+    padding: 2rem;
+    background-color: var(--card);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 12px var(--shadow);
+  }
+  
+  .audience-targets h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--text);
+    position: relative;
+    padding-bottom: 0.75rem;
+    text-align: center;
+  }
+  
+  .audience-targets h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary);
+  }
+  
+  .targets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .target-box {
+    background-color: var(--background);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 2px 8px var(--shadow);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+  
+  .target-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px var(--shadow-hover);
+  }
+  
+  .target-header {
+    padding: 1rem;
+    background-color: var(--background-alt);
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .target-header h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    text-align: center;
+  }
+  
+  .target-content {
+    padding: 1.5rem;
+  }
+  
+  .target-winner,
+  .target-runner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .winner-logo,
+  .runner-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .winner-logo img,
+  .runner-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .winner-logo.tf1,
+  .runner-logo.tf1 {
+    background-color: var(--tf1-color);
+  }
+  
+  .winner-logo.france2,
+  .runner-logo.france2 {
+    background-color: var(--france2-color);
+  }
+  
+  .winner-logo.m6,
+  .runner-logo.m6 {
+    background-color: var(--m6-color);
+  }
+  
+  .winner-logo.arte,
+  .runner-logo.arte {
+    background-color: var(--arte-color);
+  }
+  
+  .winner-share {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--text);
+  }
+  
+  .runner-share {
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--text-light);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .audience-date-banner {
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 0.75rem;
+    }
+  
+    .date-label {
+      font-size: 1rem;
+    }
+  
+    .date-value {
+      font-size: 1.25rem;
+    }
+  
+    .audience-table th,
+    .audience-table td {
+      padding: 0.75rem;
+    }
+  
+    .program-title {
+      font-size: 1rem;
+    }
+  
+    .viewers-count,
+    .share-value {
+      font-size: 1.125rem;
+    }
+  
+    .targets-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .audience-analysis,
+    .audience-targets {
+      padding: 1.5rem;
+    }
+  
+    .channel-logo {
+      width: 50px;
+      height: 50px;
+    }
+  
+    .program-title {
+      font-size: 0.875rem;
+    }
+  
+    .program-info {
+      font-size: 0.75rem;
+    }
+  
+    .viewers-count,
+    .share-value {
+      font-size: 1rem;
+    }
+  
+    .viewers-trend,
+    .share-trend {
+      font-size: 0.7rem;
+    }
+  }
